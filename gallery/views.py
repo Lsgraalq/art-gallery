@@ -35,8 +35,8 @@ def author_profile(request, user_id):
 
 @login_required
 def profile(request):
-    paintings = Painting.objects.filter(author=request.user)
-    return render(request, 'users/profile.html', {'paintings': paintings})
+    paintings = Painting.objects.filter(author=request.user)  # Здесь может быть фильтрация по текущему пользователю
+    return render(request, 'gallery/profile.html', {'paintings': paintings})
 
 def register(request):
     if request.method == 'POST':
@@ -48,4 +48,4 @@ def register(request):
     else:
         form = ArtistRegisterForm()
     
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'gallery/register.html', {'form': form})

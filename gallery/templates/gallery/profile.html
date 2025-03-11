@@ -1,2 +1,21 @@
 {% extends "gallery/base.html" %}
 {% block title %}cabinet{% endblock title %}
+
+{% block content %}
+<h1>Welcome, {{ user.username }}!</h1>
+    <p>Email: {{ user.email }}</p>
+    <p>Bio: {{ user.bio }}</p>  <!-- Если у вас есть дополнительное поле bio -->
+    
+    <h2>Your Paintings</h2>
+    <ul>
+        {% for painting in paintings %}
+            <li><a href="{% url 'painting_detail' painting.slug %}">{{ painting.title }}</a></li>
+        {% empty %}
+            <li>You haven't added any paintings yet.</li>
+        {% endfor %}
+    </ul>
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+{% endblock content %}

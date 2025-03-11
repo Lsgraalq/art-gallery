@@ -1,0 +1,10 @@
+{% extends "gallery/base.html" %}
+{% block title %}Title{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>You have successfully logged out</h1>
+    <p><a href="{% url 'login' %}">Login again</a></p>
+    <p><a href="{% url 'home' %}">Go back to home page</a></p>
+</div>
+{% endblock content %}

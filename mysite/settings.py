@@ -149,4 +149,6 @@ STATICFILES_DIRS = [
 # Для продакшн-режима
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+LOGIN_REDIRECT_URL = '/profile/'
+
 
