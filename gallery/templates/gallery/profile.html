@@ -14,8 +14,14 @@
             <li>You haven't added any paintings yet.</li>
         {% endfor %}
     </ul>
+    {% if user.is_authenticated %}
+    <div class="">
+        <a class="" href="{% url 'add_painting' %}">Add Painting</a>
+    </div>
+    {% endif %}
     <form method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit">Logout</button>
     </form>
+    
 {% endblock content %}

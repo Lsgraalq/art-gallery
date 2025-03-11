@@ -1,17 +1,19 @@
 {% extends 'gallery/base.html' %}
 {% block content %}
   <div class="container">
+    <div class="row">
     <h1>Профиль автора: {{ author.username }}</h1>
 
     <h3>Биография:</h3>
     <p>{{ author.bio|default:"Биография отсутствует" }}</p>
 
     <h2>Картины автора:</h2>
-    <div class="row">
       {% for painting in paintings %}
         <div class="col-md-4 col-4">
           {% if painting.image %}
+          <a href="{% url 'painting_detail' painting.slug %}" class="link">
             <img src="{{ painting.image.url }}" alt="{{ painting.title }}" style="width: 100%;">
+          </a>
           {% endif %}
           <h3>{{ painting.title }}</h3>
           <p>{{ painting.text }}</p>

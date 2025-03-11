@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model, login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .forms import ArtistRegisterForm
+from .forms import ArtistRegisterForm, PaintingForm
 
 
 def gallery(request):
@@ -49,3 +49,16 @@ def register(request):
         form = ArtistRegisterForm()
     
     return render(request, 'gallery/register.html', {'form': form})
+
+@login_required
+def add_painting(request):
+    if request.method == 'POST':
+        form = PaintingForm(request.POST, request.FILES)
+        if form.is_valid():
+            painting = form.save(commit=False)
+            painting.author = request.user  # Присваиваем текущего пользователя
+            painting.save()
+            return redirect('gallery')  # Перенаправление в галерею
+    else:
+        form = PaintingForm()
+    return render(request, 'gallery/add_painting.html', {'form': form})
