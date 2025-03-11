@@ -139,6 +139,8 @@ DATABASES = {
     }
 }
 
+
+
 STATIC_URL = '/static/'
 
 # Для поиска статических файлов в папке приложения
@@ -150,5 +152,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 LOGIN_REDIRECT_URL = '/profile/'
+
+
 
 
