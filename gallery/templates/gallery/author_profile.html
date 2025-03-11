@@ -1,0 +1,25 @@
+{% extends 'gallery/base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>Профиль автора: {{ author.username }}</h1>
+
+    <h3>Биография:</h3>
+    <p>{{ author.bio|default:"Биография отсутствует" }}</p>
+
+    <h2>Картины автора:</h2>
+    <div class="row">
+      {% for painting in paintings %}
+        <div class="col-md-4 col-4">
+          {% if painting.image %}
+            <img src="{{ painting.image.url }}" alt="{{ painting.title }}" style="width: 100%;">
+          {% endif %}
+          <h3>{{ painting.title }}</h3>
+          <p>{{ painting.text }}</p>
+        </div>
+      {% empty %}
+        <p>У этого автора пока нет картин.</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,7 +1,4 @@
 {% extends "gallery/base.html" %}
-
-
-
 {% block title %}Галерея{% endblock title %}
 
 {% block content %}
@@ -9,15 +6,14 @@
       
         <div class="row">
           {% for painting in paintings %}
-            <div class="col-md-4 col-6 text-center ">
+          <div class="col-6 col-md-4 text-center">
                 <a href="{% url 'painting_detail' painting.slug %}" class="link">
                 <img src="{{ painting.image.url }}" class="img-fluid rounded">
                 <h3>{{ painting.title }}</h3>
                 </a>
             </div>
             {% endfor %}
-            <p>{{ painting.image.url }}</p>
          </div> 
-     </div>
+    </div>
   
 {% endblock content %}
