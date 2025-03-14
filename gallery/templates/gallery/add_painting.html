@@ -2,10 +2,30 @@
 
 {% block content %}
   <h2>Add a New Painting</h2>
-  <form method="POST" enctype="multipart/form-data">
+  <form method="POST" enctype="multipart/form-data" class="painting-form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Publish</button>
-  </form>
+
+    <div class="form-group">
+        <label for="id_title">Название:</label>
+        {{ form.title }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_text">Описание:</label>
+        {{ form.text }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_image">Загрузить изображение:</label>
+        {{ form.image }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_auction">Выставить на аукцион: <h2>you can choose only ONE painting, in other way any of your paintings wouldnt be on the auction</h2><br></label>
+        {{ form.auction }}
+    </div>
+
+    <button type="submit" class="btn-submit">Опубликовать</button>
+</form>
   <a href="{% url 'gallery' %}">Back to Gallery</a>
 {% endblock %}

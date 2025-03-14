@@ -5,13 +5,15 @@
             <title>{% block title %}Моя галерея{% endblock title %}</title>
             <link rel="stylesheet" href="{% static "gallery/styles.css" %}">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+            
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="/">Моя Галерея</a>
+        <nav class="navbar navbar-expand-lg navbar-dark ">
+            <div class="container container-navbar">
+                <a class="navbar-brand" href="/">SO SEHE DAS ICH</a>
                 
                 <!-- Кнопка для мобильных устройств -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -23,20 +25,20 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/gallery">Gallery</a>
+                            <a class="nav-link" href="/gallery">KunstHUB</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/donation">Donation</a>
+                            <a class="nav-link" href="/donation">Support us</a>
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item ">
-                            <a class="nav-link " href="/profile">
+                            <a class="nav-link nav-pic" href="/profile">
                                 <img src="{% static "gallery/system_profile_picture.png" %}" alt="ops" class='img-fluid  picture'>
                             </a>
                         </li>
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Login</a> <!-- Ссылка на логин -->
+                            <a class="nav-link" href="{% url 'login' %}"><img src="{% static "gallery/system_profile_picture.png" %}" alt="ops" class='img-fluid  picture'></a> <!-- Ссылка на логин -->
                         </li>
                         {% endif %}
                     </ul>
@@ -47,6 +49,35 @@
     
 
         {% endblock content %}
+            <footer class="py-4 footer">
+                <div class="con">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5 class="footer-text">О нас</h5>
+                            <p class="footer-text">Информация о сайте или компании.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="footer-text">Полезные ссылки</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://www.instagram.com/nezabuti_official" class="footer-link">Instagram</a></li>
+                                <li><a href="https://www.tiktok.com/@nezabuti" class="footer-link">TikTok</a></li>
+                                <li><a href="https://www.youtube.com/@nezabuti" class="footer-link">Youtube</a></li>
+                                <li><a href="/donation" class="footer-link">Support us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="footer-text">Kontakte</h5>
+                            <p class="footer-mail">Email: nezabutiofficial@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center py-3">
+                    <small class="shit">&copy; 2025 art gallery. All rights reserved.</small>
+                </div>
+            </footer>
+
+
+
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>

@@ -1,5 +1,249 @@
-.picture {
-    max-width: 20px;
-    max-height: 30px;
-    align-content: left;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Lora:wght@400;600&family=Roboto:wght@300;500&display=swap');
+
+
+/* GLOBAL */
+body {
+    font-family: 'Montserrat', sans-serif;
 }
+
+h1 {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif; /* Используем Montserrat */
+    font-size: 2.5rem; /* Регулируем размер */
+    font-weight: bold; /* Делаем жирным */
+    text-align: center; /* Центрируем текст */
+}
+
+.title-2 {
+    font-family: 'Montserrat', sans-serif; /* Используем Montserrat */
+    font-size: 2rem; /* Регулируем размер */
+    font-weight: bold; /* Делаем жирным */
+    text-align: center; /* Центрируем текст */
+}
+
+.text-custom {
+    font-family: 'Montserrat', sans-serif; /* Используем Montserrat */
+    font-size: 1.2rem; /* Умеренный размер текста */
+    font-weight: normal; /* Обычная жирность */
+    text-align: center; /* Центрируем текст */
+    line-height: 1.6; /* Делаем текст читабельнее */
+}
+/* GLOABAL ENDS */
+
+
+
+
+
+
+.picture {
+    width: 40px;
+    height: 60px; 
+    vertical-align: bottom !important;
+    display: flex;
+}
+body {
+    font-family: 'Montserrat', sans-serif !important;;
+    background-color: #6E7DAB !important;
+}
+
+
+
+
+
+
+
+/* FOOTER */
+
+
+.footer{
+    margin-top: 100px;
+    background-color: #25283D;
+    border-top: 3px solid #000;
+}
+
+.con {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center;     /* Вертикальное центрирование */
+    height: 15%; 
+}
+
+.footer-link {
+    font-family: 'Montserrat', sans-serif; /* Используем Montserrat */
+    font-size: 20px; /* Регулируем размер */
+    font-weight: bold; /* Делаем жирным */
+    text-align: center; /* Центрируем текст */
+    color: #D1E3DD !important;
+    text-decoration: none;
+}
+
+
+.footer-text{
+    font-family: 'Montserrat', sans-serif; /* Используем Montserrat */
+    font-size: 20px; /* Умеренный размер текста */
+    font-weight: normal; /* Обычная жирность */
+    text-align: center; /* Центрируем текст */
+    line-height: 1.6; /* Делаем текст читабельнее */
+    color: #D1E3DD !important;
+}
+
+.footer-mail{
+    font-family: 'Montserrat', sans-serif; /* Используем Montserrat */
+    font-size: 20px; /* Регулируем размер */
+    font-weight: bold; /* Делаем жирным */
+    text-align: center; /* Центрируем текст */
+    color: #D1E3DD !important;
+}
+
+.list-unstyled {
+    justify-content: center;
+    align-items: center ;   
+    text-align: center;
+}
+
+.shit {
+    color: #D1E3DD !important;
+}
+
+/* FOOOTER ENDS */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* NAVBAR */
+.navbar .nav-link {
+    color: #D1E3DD !important;
+    font-weight: bold;
+    font-size: 30px;
+    padding-right: 20px;
+}
+
+.navbar {
+    background-color: #25283D !important;
+    border-bottom: 10px #312F2F !important;
+    border-radius: 20px; /* Закругляем углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+    margin: 5px; /* Отступы, чтобы не прилипало к краям */
+    padding: 5px 10px; /* Пространство внутри */
+    position: sticky !important;
+    top: 5 !important;
+    z-index: 1000 !important; /* Чтобы был выше других элементов */
+}
+.navbar-brand {
+    color: #D1E3DD !important;
+    font-weight: bold !important;
+    font-size: 30px !important;
+    padding-right: 20px !important;
+    text-decoration: underline !important;
+}
+
+.container-navbar {
+    width: 1600px !important;
+}
+
+
+.carousel-item img {
+    height: 840px;  /* или другая удобная высота */
+    width: auto;  /* сохраняем пропорции */
+    object-fit: cover; /* Обрезает края, но сохраняет заполненность контейнера */
+}
+
+/* NAVBAR ENDS */
+
+
+
+
+
+
+/* hide page scrollbar */
+html { scrollbar-width: none; } /* Firefox */
+body { -ms-overflow-style: none; } /* IE and Edge */
+body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; } /* Chrome */
+/* end hide page scrollbar */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SLIDER */
+
+
+/* Контейнер для слайдов */
+.carousel-item {
+    position: relative;
+}
+
+/* Эффект размытия */
+.slider-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px); /* Размытие */
+}
+
+/* Текст, который будет отображаться поверх слайда */
+.slider-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 1; /* Текст должен быть поверх изображения */
+}
+
+/* Стиль для заголовков текста */
+.slider-text {
+    font-size: 3rem; /* Настройте размер шрифта */
+    font-family: 'Montserrat', sans-serif;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+
+
+/* slider ends */
+
+
+
+
+
+
+

@@ -13,4 +13,4 @@ class ArtistRegisterForm(UserCreationForm):
 class PaintingForm(forms.ModelForm):
     class Meta:
         model = Painting
-        fields = ['title', 'text', 'image']  # Поля, которые пользователь будет заполнять
+        fields = ['title', 'text', 'image', 'auction']  # Поля, которые пользователь будет заполнять
