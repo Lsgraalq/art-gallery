@@ -11,7 +11,7 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark ">
+        <nav class="navbar navbar-expand-lg navbar-dark " style="background-image: url('{% static 'gallery/navbar.png' %}');">
             <div class="container container-navbar">
                 <a class="navbar-brand" href="/">SO SEHE DAS ICH</a>
                 
@@ -49,15 +49,11 @@
     
 
         {% endblock content %}
-            <footer class="py-4 footer">
+            <footer class="py-4 footer " style="background-image: url('{% static 'gallery/footer.png' %}');">
                 <div class="con">
                     <div class="row">
-                        <div class="col-md-4">
-                            <h5 class="footer-text">О нас</h5>
-                            <p class="footer-text">Информация о сайте или компании.</p>
-                        </div>
-                        <div class="col-md-4">
-                            <h5 class="footer-text">Полезные ссылки</h5>
+                        <div class="col-6">
+                            <h5 class="footer-text">Links:</h5>
                             <ul class="list-unstyled">
                                 <li><a href="https://www.instagram.com/nezabuti_official" class="footer-link">Instagram</a></li>
                                 <li><a href="https://www.tiktok.com/@nezabuti" class="footer-link">TikTok</a></li>
@@ -65,7 +61,7 @@
                                 <li><a href="/donation" class="footer-link">Support us</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-6">
                             <h5 class="footer-text">Kontakte</h5>
                             <p class="footer-mail">Email: nezabutiofficial@gmail.com</p>
                         </div>

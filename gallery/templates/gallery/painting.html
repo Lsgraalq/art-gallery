@@ -1,19 +1,60 @@
-{% extends "gallery/base.html" %}
-{% block title %}Painting{% endblock title %}
+{% extends 'gallery/base.html' %}
+
 {% block content %}
-    <div class="container">
+  <div class="container py-5">
+    <div class="card shadow-lg p-4" style="border-radius: 15px;">
+
       <div class="row">
-        <div class="col-5">
-        <img src="{{painting.image.url}}" alt="" class="img-fluid">
+        <div class="col-lg-6 col-12 mb-4 text-center">
+          <img src="{{ painting.image.url }}" alt="{{ painting.title }}" class="img-fluid rounded"
+               style="max-width: 100%; height: 400px; object-fit: cover;">
         </div>
-        <div class="col-7">
-          <a href="{% url 'author_profile' user_id=painting.author.id %}" class="">{{painting.author}}</a>
-          {{painting.title}}
-          {{painting.text}}
+
+        <div class="col-lg-6 col-12">
+          <div class="md-3">
+            <h2 class="text-center mb-4 text-danger fw-bold">{{ painting.title }}</h2>
+          </div>
+          <div class="mb-3">
+            <strong>Autor:</strong> <a href="{% url 'author_profile' user_id=painting.author.id %}">{{ painting.author.username }}</a>
+          </div>
+
+          <div class="mb-3">
+            <strong>Erstellungsjahr:</strong> {{ painting.year_of_creation }}
+          </div>
+
+          <div class="mb-3">
+            <strong>Leinwandmaterial:</strong> {{ painting.canvas_material }}
+          </div>
+
+          <div class="mb-3">
+            <strong>Größe:</strong> {{ painting.height }} x {{ painting.width }} cm
+          </div>
+
+          <div class="mb-3">
+            <strong>Beschreibung:</strong>
+            <p>{{ painting.text }}</p>
+          </div>
+
+          <div class="mb-3">
+            <strong>Preis:</strong> 
+            {% if painting.is_for_sale %}
+              {{ painting.price }}€
+            {% else %}
+              Nicht zum Verkauf
+            {% endif %}
+          </div>
+
+          {% if painting.auction %}
+            <div class="alert alert-warning text-center fw-bold" role="alert">
+              Dieses Gemälde ist bei einer Auktion!
+            </div>
+          {% endif %}
+
+          <div class="mt-4 text-center">
+            <a href="{% url 'gallery' %}" class="btn btn-outline-danger">Zurück zur Galerie</a>
+          </div>
         </div>
       </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-{% endblock content %}
-
-
-
+    </div>
+  </div>
+{% endblock %}

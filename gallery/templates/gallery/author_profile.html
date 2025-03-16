@@ -1,26 +1,38 @@
 {% extends 'gallery/base.html' %}
+
 {% block content %}
-  <div class="container">
-    <div class="row">
-    <h1>Профиль автора: {{ author.username }}</h1>
-
-    <h3>Биография:</h3>
-    <p>{{ author.bio|default:"Биография отсутствует" }}</p>
-
-    <h2>Картины автора:</h2>
-      {% for painting in paintings %}
-        <div class="col-md-4 col-4">
-          {% if painting.image %}
-          <a href="{% url 'painting_detail' painting.slug %}" class="link">
-            <img src="{{ painting.image.url }}" alt="{{ painting.title }}" style="width: 100%;">
-          </a>
-          {% endif %}
-          <h3>{{ painting.title }}</h3>
-          <p>{{ painting.text }}</p>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <!-- Профиль пользователя -->
+      <div class="col-12 col-md-4 text-center">
+        <div class="image">
+          <img src="{{ user.profile_pic.url }}" alt="Profilbild" class="profile-pic img-fluid rounded-circle">
         </div>
-      {% empty %}
-        <p>У этого автора пока нет картин.</p>
-      {% endfor %}
+        <h1 class="author-name mt-3 text-primary">{{ author.username }}</h1>
+      </div>
+
+      <div class="col-12 col-md-8 mt-4">
+        <h3 class="bio-title text-danger">Biografie:</h3>
+        <p class="bio-text text-muted">{{ author.bio|default:"Biografie nicht verfügbar" }}</p>
+        
+        <h2 class="paintings-title text-warning">Gemälde des Autors:</h2>
+        
+        <div class="row">
+          {% for painting in paintings %}
+            <div class="col-md-4 col-6 mb-4 painting-item">
+              {% if painting.image %}
+              <a href="{% url 'painting_detail' painting.slug %}" class="painting-link">
+                <img src="{{ painting.image.url }}" alt="{{ painting.title }}" class="painting-image img-fluid rounded shadow">
+              </a>
+              {% endif %}
+              <h3 class="painting-title text-danger mt-2">{{ painting.title }}</h3>
+              <p class="painting-text text-muted">{{ painting.text }}</p>
+            </div>
+          {% empty %}
+            <p>Dieser Autor hat noch keine Gemälde.</p>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}

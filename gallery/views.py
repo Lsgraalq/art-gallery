@@ -5,11 +5,16 @@ from django.contrib.auth import get_user_model, login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import ArtistRegisterForm, PaintingForm
-
+from django.core.paginator import Paginator
 
 def gallery(request):
-    paintings = Painting.objects.all()
-    return render(request, 'gallery/gallery.html', {"paintings":paintings})
+    paintings = Painting.objects.all()  # Получаем все картины
+    paginator = Paginator(paintings, 8)  # Показывать 8 картин на странице
+    page_number = request.GET.get('page')  # Получаем номер страницы из запроса
+    page_obj = paginator.get_page(page_number)  # Получаем объекты для текущей страницы
+
+    return render(request, 'gallery/gallery.html', {"paintings": page_obj})
+
 
 def painting_detail(request, slug):
     painting = get_object_or_404(Painting, slug=slug)
@@ -62,3 +67,35 @@ def add_painting(request):
     else:
         form = PaintingForm()
     return render(request, 'gallery/add_painting.html', {'form': form})
+
+
+
+@login_required
+def delete_painting(request, slug):
+    painting = get_object_or_404(Painting, slug=slug, author=request.user)
+    painting.delete()
+    return redirect('profile')  # Возвращает обратно в кабинет
+
+
+
+# views.py
+from django.shortcuts import render, redirect
+from .forms import ArtistProfileForm
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def edit_profile(request):
+    # Получаем текущего пользователя
+    artist = request.user
+    
+    # Проверяем, если форма была отправлена
+    if request.method == 'POST':
+        form = ArtistProfileForm(request.POST, request.FILES, instance=artist)
+        if form.is_valid():
+            form.save()  # Сохраняем изменения в профиле
+            return redirect('profile')  # Перенаправляем на страницу профиля (можно настроить)
+
+    else:
+        form = ArtistProfileForm(instance=artist)
+    
+    return render(request, 'gallery/edit_profile.html', {'form': form})

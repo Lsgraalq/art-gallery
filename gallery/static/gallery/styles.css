@@ -21,6 +21,9 @@ p {
     font-size: 2.5rem; /* Регулируем размер */
     font-weight: bold; /* Делаем жирным */
     text-align: center; /* Центрируем текст */
+    color: #FFD900;
+    text-decoration: underline;
+    margin-bottom: 20px;
 }
 
 .title-2 {
@@ -28,6 +31,8 @@ p {
     font-size: 2rem; /* Регулируем размер */
     font-weight: bold; /* Делаем жирным */
     text-align: center; /* Центрируем текст */
+    color: #FFD900;
+    margin-bottom: 20px;
 }
 
 .text-custom {
@@ -52,7 +57,7 @@ p {
 }
 body {
     font-family: 'Montserrat', sans-serif !important;;
-    background-color: #6E7DAB !important;
+    background-color: white !important;
 }
 
 
@@ -66,8 +71,8 @@ body {
 
 .footer{
     margin-top: 100px;
-    background-color: #25283D;
-    border-top: 3px solid #000;
+    /* background-color: #25283D; */
+
 }
 
 .con {
@@ -83,7 +88,7 @@ body {
     font-size: 20px; /* Регулируем размер */
     font-weight: bold; /* Делаем жирным */
     text-align: center; /* Центрируем текст */
-    color: #D1E3DD !important;
+    color: #FFD900 !important;
     text-decoration: none;
 }
 
@@ -94,7 +99,7 @@ body {
     font-weight: normal; /* Обычная жирность */
     text-align: center; /* Центрируем текст */
     line-height: 1.6; /* Делаем текст читабельнее */
-    color: #D1E3DD !important;
+    color: #FFD900 !important;
 }
 
 .footer-mail{
@@ -102,7 +107,7 @@ body {
     font-size: 20px; /* Регулируем размер */
     font-weight: bold; /* Делаем жирным */
     text-align: center; /* Центрируем текст */
-    color: #D1E3DD !important;
+    color: #FFD900 !important;
 }
 
 .list-unstyled {
@@ -112,7 +117,7 @@ body {
 }
 
 .shit {
-    color: #D1E3DD !important;
+    color: #FFD900 !important;
 }
 
 /* FOOOTER ENDS */
@@ -137,25 +142,25 @@ body {
 
 /* NAVBAR */
 .navbar .nav-link {
-    color: #D1E3DD !important;
+    color: #FFD900 !important;
     font-weight: bold;
     font-size: 30px;
     padding-right: 20px;
+
 }
 
-.navbar {
-    background-color: #25283D !important;
-    border-bottom: 10px #312F2F !important;
-    border-radius: 20px; /* Закругляем углы */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Добавляем тень */
-    margin: 5px; /* Отступы, чтобы не прилипало к краям */
-    padding: 5px 10px; /* Пространство внутри */
+/*  .navbar {
+    border-bottom: 10px red !important;
+    border-radius: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    margin: 5px; 
+    padding: 5px 10px; 
     position: sticky !important;
     top: 5 !important;
-    z-index: 1000 !important; /* Чтобы был выше других элементов */
-}
+    z-index: 1000 !important; 
+} */
 .navbar-brand {
-    color: #D1E3DD !important;
+    color: #FFD900 !important;
     font-weight: bold !important;
     font-size: 30px !important;
     padding-right: 20px !important;
@@ -203,7 +208,7 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; } /* Ch
 
 
 /* Контейнер для слайдов */
-.carousel-item {
+.carousel-item {    
     position: relative;
 }
 
@@ -243,7 +248,79 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; } /* Ch
 
 
 
+.invalid-feedback {
+    display: block;
+    color: #dc3545;
+    font-size: 0.875rem;
+}
+
+input.is-invalid, select.is-invalid, textarea.is-invalid {
+    border-color: #dc3545;
+    background-color: #f8d7da;
+}
+
+
+.auction-checkbox {
+    width: 30px !important;
+    height: 30px !important;
+    margin-top: 5px;
+  }
 
 
 
-
+/* Стили для профиля */
+.profile-pic {
+    width: 200px;    /* Фиксированная ширина */
+    height: 200px;   /* Фиксированная высота */
+    object-fit: cover;
+    border: 5px solid #ffcc00; /* Желтая рамка */
+  }
+  
+  .author-name {
+    font-family: 'Arial', sans-serif;
+    color: #d9534f; /* Красный цвет */
+    font-size: 2rem;
+  }
+  
+  .bio-title {
+    color: #d9534f; /* Красный */
+    font-size: 1.5rem;
+  }
+  
+  .bio-text {
+    color: #5a5a5a; /* Серый для текста */
+  }
+  
+  .paintings-title {
+    color: #ffcc00; /* Желтый */
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  /* Стили для картин */
+  .painting-item img {
+    width: 100%;          /* Ширина изображения 100% от родительского контейнера */
+    height: 250px;        /* Фиксированная высота для картин */
+    object-fit: cover;    /* Сохранение пропорций изображения */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .painting-item img:hover {
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+  }
+  
+  .painting-title {
+    color: #d9534f;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .painting-text {
+    color: #6c757d; /* Легкий серый для текста */
+  }
+  
+  .painting-link {
+    text-decoration: none;
+  }
+  
