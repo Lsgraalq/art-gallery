@@ -15,6 +15,7 @@ from pathlib import Path
 import os
 AUTH_USER_MODEL = 'gallery.Artist'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -81,11 +82,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # ✅ Теперь работает
     }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -145,12 +144,10 @@ DATABASES = {
 STATIC_URL = '/static/'
 
 # Для поиска статических файлов в папке приложения
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Папка static в корне проекта
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # откуда их брать
 
 # Для продакшн-режима
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 LOGIN_REDIRECT_URL = '/profile/'
 
