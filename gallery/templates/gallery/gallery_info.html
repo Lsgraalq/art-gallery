@@ -1,9 +1,31 @@
 {% extends "gallery/base.html" %}
+{% load static %}
 {% block title %}Info{% endblock title %}
 
 {% block content %}
 <!-- Подключение шрифта Montserrat -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<div style="
+    position: relative; 
+    width: 100vw; 
+    height: 100vh; 
+    background: url('{% static "gallery/info.png" %}') no-repeat center center / cover;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    text-align: center;">
+    
+    <div style="
+        color: white; 
+        font-family: 'Montserrat', sans-serif; 
+        font-weight: 700; 
+        font-size: 3rem;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);">
+        SO SEHE ICH DAS <br>  
+        AM 29.03.1991
+    </div>
+
+</div>
 
 <div class="container mt-5 text-center">
     <!-- Изменённый заголовок -->

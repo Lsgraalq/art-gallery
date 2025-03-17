@@ -50,11 +50,13 @@ p {
 
 
 .picture {
-    width: 40px;
-    height: 60px; 
-    vertical-align: bottom !important;
-    display: flex;
+    max-width: 50px; /* Не шире экрана */
+    max-height: 50px; /* Не выше экрана */
+    width: auto; /* Подстраивается */
+    height: auto;
+    object-fit: contain; /* Сохраняет пропорции */
 }
+
 body {
     font-family: 'Montserrat', sans-serif !important;;
     background-color: white !important;
