@@ -1,10 +1,21 @@
 {% extends "gallery/base.html" %}
-{% block title %}Title{% endblock title %}
+{% block title %}Abgemeldet{% endblock title %}
 
 {% block content %}
-<div class="container">
-    <h1>You have successfully logged out</h1>
-    <p><a href="{% url 'login' %}">Login again</a></p>
-    <p><a href="{% url 'home' %}">Go back to home page</a></p>
+<!-- Подключение шрифта Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="text-center">
+        <h1 style="font-family: 'Montserrat', sans-serif; font-weight: bold; color: #FFC300;">
+            Du hast dich erfolgreich abgemeldet
+        </h1>
+        <p class="mt-3">
+            <a href="{% url 'login' %}" class="btn btn-warning btn-lg">Erneut anmelden</a>
+        </p>
+        <p>
+            <a href="{% url 'home' %}" class="btn btn-dark btn-lg">Zur Startseite</a>
+        </p>
+    </div>
 </div>
 {% endblock content %}

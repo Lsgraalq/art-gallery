@@ -15,7 +15,11 @@
             <h2 class="text-center mb-4 text-danger fw-bold">{{ painting.title }}</h2>
           </div>
           <div class="mb-3">
-            <strong>Autor:</strong> <a href="{% url 'author_profile' user_id=painting.author.id %}">{{ painting.author.username }}</a>
+            <strong>Autor:</strong> <a href="{% url 'author_profile' user_id=painting.author.id %}">          {% if user.first_name and user.last_name %}
+              {{ user.first_name }} {{ user.last_name }}
+          {% else %}
+              {{ user.username }}
+          {% endif %}</a>
           </div>
 
           <div class="mb-3">

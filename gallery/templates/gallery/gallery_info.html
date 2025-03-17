@@ -1,0 +1,61 @@
+{% extends "gallery/base.html" %}
+{% block title %}Info{% endblock title %}
+
+{% block content %}
+<!-- Подключение шрифта Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+<div class="container mt-5 text-center">
+    <!-- Изменённый заголовок -->
+    <h1 style="font-family: 'Montserrat', sans-serif; font-weight: bold; color: #FFC300; border-bottom: 3px solid #FFC300; display: inline-block;">
+        Über die Ausstellung
+    </h1>
+    <p class="lead mt-4">
+        Unsere erste Ausstellung, bei der wir ganz unterschiedliche kreative Menschen und vor allem ihre Werke kennenlernen und zum Mitmachen einladen wollen! 
+        Gemälde, Figuren, Filme, Fotografien - alles sind Werke menschlicher Kreativität, alles ist Kunst. Wir sind gespannt auf Sie!
+    </p>
+
+    <!-- Карточки без коробок, текст в одном потоке -->
+    <div class="mt-5">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-weight: bold; color: #FFC300; border-bottom: 3px solid #FFC300;">
+            Termin
+        </h2>
+        <p class="lead">
+            29.03. <br>Veranstaltungsort: Neustädter Passage 13 (Halle Neustadt).
+        </p>
+    </div>
+
+    <div class="mt-5">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-weight: bold; color: #FFC300; border-bottom: 3px solid #FFC300;">
+            Zeitplan
+        </h2>
+        <ul class="list-group list-group-flush text-center">
+            <li class="list-group-item">11:00 Vorbereitung der Werke und Stände</li>
+            <li class="list-group-item">13:00 Beginn der Ausstellung</li>
+            <li class="list-group-item">15:00 Versteigerung</li>
+            <li class="list-group-item">18:00 Ende der Ausstellung</li>
+        </ul>
+    </div>
+
+    <div class="mt-5">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-weight: bold; color: #FFC300; border-bottom: 3px solid #FFC300;">
+            CAFÉ
+        </h2>
+        <p class="lead">
+            In unserer Ausstellung wird es ein Mini-Café geben, in dem Sie unter anderem osteuropäische Küche genießen können!
+        </p>
+    </div>
+
+    <div class="mt-5">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-weight: bold; color: #FFC300; border-bottom: 3px solid #FFC300;">
+            VERKAUF & AUKTION
+        </h2>
+        <p class="lead">
+            Sie können einige Ihrer Werke zum Verkauf anbieten und als unabhängiger Künstler eine Spende machen. Wenn Sie verkaufen, um andere von unserer Gruppe organisierte Veranstaltungen und Ausstellungen zu unterstützen, werden 20% des Wertes jedes Ihrer Werke berechnet.
+        </p>
+        <p class="lead">
+            Im Rahmen unserer Ausstellung planen wir auch eine Versteigerung verschiedener Werke. Wenn Sie ein Werk haben, das Sie versteigern möchten, geht auch hier eine Spende von 20% des Wertes des Gemäldes für unsere zukünftigen Veranstaltungen ein.
+        </p>
+    </div>
+</div>
+{% endblock content %}

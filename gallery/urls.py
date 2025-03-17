@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import gallery, painting_detail, home, donation, author_profile, register, profile, add_painting, delete_painting, edit_profile
+from .views import gallery, painting_detail, home, donation, author_profile, register, profile, add_painting, delete_painting, edit_profile, politics, info
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -15,4 +15,6 @@ urlpatterns = [
     path('add_painting/', add_painting, name='add_painting'),
     path('painting/delete/<slug:slug>/', delete_painting, name='delete_painting'),
     path('edit_profile/', edit_profile, name='edit_profile'),
+    path('politics_of_usage/', politics, name='politics_of_usage'),
+    path('gallery_info/', info, name='gallery_info'),
 ]

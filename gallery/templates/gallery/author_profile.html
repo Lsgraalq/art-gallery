@@ -8,7 +8,13 @@
         <div class="image">
           <img src="{{ user.profile_pic.url }}" alt="Profilbild" class="profile-pic img-fluid rounded-circle">
         </div>
-        <h1 class="author-name mt-3 text-primary">{{ author.username }}</h1>
+        <h1 class="author-name mt-3 text-primary">
+          {% if user.first_name and user.last_name %}
+          {{ user.first_name }} {{ user.last_name }}
+      {% else %}
+          {{ user.username }}
+      {% endif %}
+        </h1>
       </div>
 
       <div class="col-12 col-md-8 mt-4">

@@ -324,3 +324,16 @@ input.is-invalid, select.is-invalid, textarea.is-invalid {
     text-decoration: none;
   }
   
+
+  /* global styles */
+h1, h2, h3, .btn-warning, .text-warning {
+    color: #FFC300 !important;
+}
+
+.btn-warning {
+    background-color: green!important;
+    border-color: green !important;
+}
+
+/* Если ты хочешь, чтобы другие элементы (например, ссылки) тоже стали желтыми */
+

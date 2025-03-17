@@ -95,7 +95,7 @@
         </div>
 
         <div class="form-group mb-3">
-          <label for="id_canvas_material" class="form-label text-danger">Kunstwerk hinzufügen:</label>
+          <label for="id_canvas_material" class="form-label text-danger">Kunstwerkmaterial:</label>
           {{ form.canvas_material }}
           {% if form.canvas_material.errors %}
             <div class="invalid-feedback d-block">
@@ -145,7 +145,7 @@
           {% endif %}
         </div>
 
-        <button type="submit" class="btn btn-warning w-100">Veröffentlichen</button>
+        <button type="submit" class="btn btn-warning w-100">Kunstwerk hinzufügen</button>
       </form>
       <div class="mt-3 text-center">
         <a href="{% url 'gallery' %}" class="btn btn-outline-danger">Zurück zur Galerie</a>

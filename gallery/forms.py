@@ -1,7 +1,18 @@
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from .models import Artist, Painting
 from .models import Artist
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import Artist, Painting
+# Форма для редактирования картины в админке
+class PaintingAdminForm(forms.ModelForm):
+    class Meta:
+        model = Painting
+        fields = ['title', 'auction', 'author', 'price', 'is_for_sale']  # Можно добавить другие поля, если нужно
+
+    auction = forms.BooleanField(required=False, label='Выставлено на аукцион', widget=forms.CheckboxInput())
+
 
 class ArtistRegisterForm(UserCreationForm):
     email = forms.EmailField()
@@ -46,7 +57,8 @@ class PaintingForm(forms.ModelForm):
 class ArtistProfileForm(forms.ModelForm):
     class Meta:
         model = Artist
-        fields = ['bio', 'profile_pic']  # Поля для редактирования профиля
+        fields = ['bio', 'profile_pic','first_name','last_name']  # Поля для редактирования профиля
         widgets = {
             'bio': forms.Textarea(attrs={'rows': 4, 'class': 'form-control'}),  # Виджет для textarea
         }
+        
